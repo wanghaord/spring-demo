@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CarTest {
 
     /**
-     * 通过xml的方式获取Bean属性值
+     * 通过xml的方式获取Bean的属性值
      */
     @Test
     public void testCarName() {
