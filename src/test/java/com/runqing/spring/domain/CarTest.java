@@ -8,13 +8,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-// 测试类12
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class CarTest {
 
     /**
-     * 通过xml的方式获取Bean中属性值
+     * 通过xml的方式获取Bean属性值
      */
     @Test
     public void testCarName() {
