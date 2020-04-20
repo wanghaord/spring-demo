@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-// 测试类
+// 测试类1
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class CarTest {
