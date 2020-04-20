@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        1、每个Bean中的id和name都必须是唯一的，如果有2个id为car的Bean或者name为cars的bean则会抛错
+        2、在Bean中如果给Bean使用了name标签则可以对Bean进行别名操作
+    -->
+    <alias name="cars" alias="newCar"/>
+    <bean id="car" name="cars" class="com.runqing.spring.domain.Car">
+        <property name="carName" value="兰博基尼"/>
+        <property name="carChassis" ref="chassis"/>
+    </bean>
+
+    <bean id="chassis" class="com.runqing.spring.domain.CarChassis">
+        <property name="chassisName" value="Urus底盘"/>
+    </bean>
+
+    <!--以下Bean定义用来演示构造器注入Bean-->
+    <!--<bean id="classroom" class="com.runqing.spring.instance.ClassRoom">
+        <property name="className" value="高三一班"/>
+    </bean>
+    <bean id="teacher" class="com.runqing.spring.instance.Teacher">
+        <constructor-arg ref="classroom"/>
+    </bean>-->
+
+    <!--以下Bean定义用来测试使用静态构造方式实例化Bean-->
+    <bean id="classrooms" class="com.runqing.spring.instance.ClassRoom" factory-method="getInstance"/>
+    <bean id="teachers" class="com.runqing.spring.instance.Teacher">
+        <constructor-arg ref="classrooms"/>
+    </bean>
+
+    <!--以下Bean定义用来测试使用静态构造方式实例化Bean-->
+    <bean id="classroom" class="com.runqing.spring.instance.ClassRoom"/>
+
+    <bean id="bj" factory-bean="classroom" factory-method="getClassRoom"/>
+    <bean id="teacher" class="com.runqing.spring.instance.Teacher">
+        <constructor-arg ref="classrooms"/>
+    </bean>
+</beans>
