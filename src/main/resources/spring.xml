@@ -39,4 +39,28 @@
     <bean id="teacher" class="com.runqing.spring.instance.Teacher">
         <constructor-arg ref="classrooms"/>
     </bean>
+
+    <!--以下Bean用来测试集合注入-->
+    <bean id="student" class="com.runqing.spring.domain.Student">
+        <property name="hobby">
+            <list>
+                <value>list数据</value>
+            </list>
+        </property>
+
+        <property name="eat">
+            <set>
+                <value>111</value>
+                <value>222</value>
+            </set>
+        </property>
+
+        <property name="info">
+            <map>
+                <entry key="name" value="润清"/>
+                <entry key="age" value="18"/>
+            </map>
+        </property>
+
+    </bean>
 </beans>

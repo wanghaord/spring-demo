@@ -36,4 +36,34 @@ public class CarTest {
         System.out.println("老师班级为： " + teacher.getClassRoom().getClassName());
     }
 
+    /**
+     * 用来测试集合注入
+     */
+    @Test
+    public void testList() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        Student student = (Student) context.getBean("student");
+        System.out.println(student.getHobby());
+    }
+
+    /**
+     * 用来测试Set集合注入
+     */
+    @Test
+    public void testSet() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        Student student = (Student) context.getBean("student");
+        System.out.println(student.getEat());
+    }
+
+    /**
+     * 用来测试Map集合注入
+     */
+    @Test
+    public void testMap() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        Student student = (Student) context.getBean("student");
+        System.out.println(student.getInfo());
+    }
+
 }
