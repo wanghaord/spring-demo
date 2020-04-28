@@ -61,6 +61,26 @@
                 <entry key="age" value="18"/>
             </map>
         </property>
+    </bean>
 
+    <!--以下配置用来测试方法注入-->
+   <!-- <bean id="thief" scope="prototype" class="com.runqing.spring.di.Thief">
+    </bean>-->
+
+    <!--
+        通过byName会去Police中根据名字找thief的Bean，发现在配置文件中有id为thief
+    -->
+    <!--<bean id="police" class="com.runqing.spring.di.Police" autowire="byName">
+        &lt;!&ndash;可以使用注解方式产生多个实例Bean&ndash;&gt;
+        &lt;!&ndash;<lookup-method name="getThief" bean="thief"/>&ndash;&gt;
+    </bean>-->
+
+    <!--以下配置用来测试任意方法替换-->
+    <bean id="wife" class="com.runqing.spring.di.Wife">
+    </bean>
+    <bean id="thief" scope="prototype" class="com.runqing.spring.di.Thief">
+    </bean>
+    <bean id="police" class="com.runqing.spring.di.Police" autowire="byName">
+        <replaced-method name="getThief" replacer="wife"/>
     </bean>
 </beans>
