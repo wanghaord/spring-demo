@@ -50,5 +50,18 @@ public class MethodDITest {
         System.out.println("car: " + car.hashCode());
         Car car2 = (Car) context.getBean("car");
         System.out.println("car2: " + car2.hashCode());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Car car3 = (Car) context.getBean("car");
+                System.out.println("car3: " + car3.hashCode());
+            }
+        }).start();
+    }
+
+    @Test
+    public void back() {
+        System.out.println("back");
     }
 }
